@@ -1,1 +1,16 @@
-<p>user-list works!</p>
+<button (click)="addUser()">Add User</button>
+
+<div *ngFor="let post of users">
+    <!-- Display post data here -->
+    <h2 (click)="viewUser(post.id)">{{ post.name }}</h2>
+    <p>{{ post.email }}</p>
+    <p>{{ post.username }}</p>
+    <p>{{ post.phone }}</p>
+    <p>{{ post.website }}</p>
+    <p>{{ post.company.name }}</p>
+    <p>{{ post.address.city }}</p>
+
+    <!-- Add delete and edit buttons -->
+    <button (click)="deleteUser(post.id)">Delete</button>
+    <button (click)="editUser(post.id)" style="margin-left: 10px;">Edit</button>
+</div>

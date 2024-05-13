@@ -1,1 +1,74 @@
-<p>user-edit works!</p>
+<div class="container">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" formControlName="name" required>
+            <div
+                *ngIf="userForm.get('name')?.invalid && (userForm.get('name')?.dirty || userForm.get('name')?.touched)">
+                <div *ngIf="userForm.get('name')?.errors?.['required']">Name is required.</div>
+            </div>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <textarea id="email" formControlName="email" required></textarea>
+            <div
+                *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)">
+                <div *ngIf="userForm.get('email')?.errors?.['required']">Email is required.</div>
+            </div>
+        </div>
+        <div>
+            <label for="phone">Phone</label>
+            <textarea id="phone" formControlName="phone" required></textarea>
+            <div
+                *ngIf="userForm.get('phone')?.invalid && (userForm.get('phone')?.dirty || userForm.get('phone')?.touched)">
+                <div *ngIf="userForm.get('phone')?.errors?.['required']">Phone is required.</div>
+            </div>
+        </div>
+        <div>
+            <label for="website">Website</label>
+            <textarea id="website" formControlName="website" required></textarea>
+            <div
+                *ngIf="userForm.get('website')?.invalid && (userForm.get('website')?.dirty || userForm.get('website')?.touched)">
+                <div *ngIf="userForm.get('website')?.errors?.['required']">Website is required.</div>
+            </div>
+        </div>
+        <div>
+            <label for="username">Username</label>
+            <textarea id="username" formControlName="username" required></textarea>
+            <div
+                *ngIf="userForm.get('username')?.invalid && (userForm.get('username')?.dirty || userForm.get('username')?.touched)">
+                <div *ngIf="userForm.get('username')?.errors?.['required']">Username is required.</div>
+            </div>
+        </div>
+        <div>
+            <label for="company">Company</label>
+            <div formGroupName="company">
+                <input type="text" id="name" formControlName="name" required>
+                <input type="text" id="catchPhrase" formControlName="catchPhrase" required>
+                <input type="text" id="bs" formControlName="bs" required>
+            </div>
+            <div
+                *ngIf="userForm.get('company')?.invalid && (userForm.get('company')?.dirty || userForm.get('company')?.touched)">
+                <div *ngIf="userForm.get('company')?.errors?.['required']">Company is required.</div>
+            </div>
+        </div>
+        <div>
+            <label for="address">Address</label>
+            <div formGroupName="address">
+                <input type="text" id="street" formControlName="street" required>
+                <input type="text" id="suite" formControlName="suite" required>
+                <input type="text" id="city" formControlName="city" required>
+                <input type="text" id="zipcode" formControlName="zipcode" required>
+                <div formGroupName="geo">
+                    <input type="text" id="lat" formControlName="lat" required>
+                    <input type="text" id="lng" formControlName="lng" required>
+                </div>
+            </div>
+            <div
+                *ngIf="userForm.get('address')?.invalid && (userForm.get('address')?.dirty || userForm.get('address')?.touched)">
+                <div *ngIf="userForm.get('address')?.errors?.['required']">Address is required.</div>
+            </div>
+        </div>
+        <button type="submit">Update User</button>
+    </form>
+</div>
