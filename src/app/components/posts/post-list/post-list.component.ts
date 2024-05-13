@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { injectQuery } from '@tanstack/angular-query-experimental';
+import { injectQuery, injectQueryClient } from '@tanstack/angular-query-experimental';
 import { PostService } from '../../../core/services/post.service';
 import { Post } from '../../../core/models/post';
 import { Router } from '@angular/router';
@@ -16,6 +16,7 @@ export class PostListComponent implements OnInit {
   posts: Post[] = [];
   postService = inject(PostService);
   router = inject(Router);
+  queryClient = injectQueryClient();
   constructor() {}
 
   ngOnInit(): void {}

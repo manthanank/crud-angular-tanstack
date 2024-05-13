@@ -8,10 +8,6 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PostService } from '../../../core/services/post.service';
-import {
-  injectMutation,
-  injectQuery,
-} from '@tanstack/angular-query-experimental';
 
 @Component({
   selector: 'app-post-add',

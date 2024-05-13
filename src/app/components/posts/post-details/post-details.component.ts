@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { injectQuery } from '@tanstack/angular-query-experimental';
+import { injectQuery, injectQueryClient } from '@tanstack/angular-query-experimental';
 import { PostService } from '../../../core/services/post.service';
 import { Post } from '../../../core/models/post';
 import { NgIf } from '@angular/common';
@@ -22,7 +22,7 @@ export class PostDetailsComponent implements OnInit {
   };
   route = inject(ActivatedRoute);
   postService = inject(PostService);
-
+  queryClient = injectQueryClient();
   constructor() {
     this.id = this.route.snapshot.params['id'];
   }

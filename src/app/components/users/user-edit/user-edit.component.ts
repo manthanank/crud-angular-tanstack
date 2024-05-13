@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { UserService } from '../../../core/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { injectQuery } from '@tanstack/angular-query-experimental';
+import { injectQuery, injectQueryClient } from '@tanstack/angular-query-experimental';
 import { User } from '../../../core/models/user';
 
 @Component({
@@ -23,6 +23,7 @@ export class UserEditComponent implements OnInit {
   route = inject(ActivatedRoute);
   router = inject(Router);
   userService = inject(UserService);
+  queryClient = injectQueryClient();
   userForm = new FormGroup({
     id: new FormControl(0),
     name: new FormControl(''),

@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { injectQuery } from '@tanstack/angular-query-experimental';
+import { injectQuery, injectQueryClient } from '@tanstack/angular-query-experimental';
 import { UserService } from '../../../core/services/user.service';
 import { User } from '../../../core/models/user';
 import { NgFor } from '@angular/common';
@@ -18,6 +18,7 @@ export class UsersListComponent implements OnInit {
   users: User[] = [];
   router = inject(Router);
   unsubscribe$ = new Subject<void>();
+  queryClient = injectQueryClient();
   constructor() {}
 
   ngOnInit(): void {}

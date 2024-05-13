@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../../../core/services/post.service';
-import { injectQuery } from '@tanstack/angular-query-experimental';
+import { injectQuery, injectQueryClient } from '@tanstack/angular-query-experimental';
 
 @Component({
   selector: 'app-post-edit',
@@ -18,6 +18,7 @@ import { injectQuery } from '@tanstack/angular-query-experimental';
   styleUrl: './post-edit.component.scss',
 })
 export class PostEditComponent implements OnInit {
+  queryClient = injectQueryClient();
   postForm: FormGroup = new FormGroup({
     id: new FormControl(''),
     title: new FormControl(''),

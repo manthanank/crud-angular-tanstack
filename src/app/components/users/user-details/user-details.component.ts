@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { injectQuery } from '@tanstack/angular-query-experimental';
+import { injectQuery, injectQueryClient } from '@tanstack/angular-query-experimental';
 import { UserService } from '../../../core/services/user.service';
 import { Company, User, Address } from '../../../core/models/user';
 import { NgIf } from '@angular/common';
@@ -16,6 +16,7 @@ export class UserDetailsComponent implements OnInit {
   userId: number = 0;
   route = inject(ActivatedRoute);
   userService = inject(UserService);
+  queryClient = injectQueryClient();
   user: User = {
     id: 0,
     name: '',
